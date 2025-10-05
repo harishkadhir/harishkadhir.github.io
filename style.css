@@ -1105,3 +1105,8 @@ footer { text-align:center; padding:20px; border-top:1px solid #fff; color:#aaa;
     width: 90%;
   }
 }
+@media (max-width: 768px) {
+  .hero-box {
+    padding: 40px 5px; /* moves hero box closer to top */
+  }
+}
