@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture-Based Boxing Game Controller | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gesture-game.css">
+</head>
+<body>
+
+<!-- Hero / Project Header -->
+<section class="hero-box">
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1 class="hero-name" data-text="Gesture-Based Boxing Controller">Gesture-Based Boxing Controller</h1>
+      <h2 class="ai-subtitle">Control Big Shot Boxing with Hand Gestures</h2>
+      <p>
+        Control a boxing game using real-time hand gestures through your webcam! 
+        This project uses <b>OpenCV</b>, <b>MediaPipe</b>, and <b>PyAutoGUI</b> to detect your gestures and simulate key presses 
+        in the browser to control the game <b>Big Shot Boxing</b>.
+      </p>
+    </div>
+    <div class="hero-right">
+      <img src="image-9.png" alt="Gesture Boxing Game" class="hero-image">
+
+      <!-- Buttons -->
+      <div class="buttons" style="margin-top:15px; display:flex; gap:15px; justify-content:center;">
+        <a href="index.html" class="btn"><span>Back to Portfolio</span></a>
+        <a href="https://github.com/harishkadhir/Gesture_Control.git" target="_blank" class="btn github-btn"><span>GitHub</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="content-section">
+  <div class="content-inner">
+
+    <h2 class="glitch-heading" data-text="Features">Features</h2>
+    <ul>
+      <li> Detects Left Punch, Right Punch, Uppercut, and Block gestures</li>
+      <li> Launches the boxing game in your browser automatically</li>
+      <li> Uses MediaPipe for accurate hand tracking</li>
+      <li> Uses PyAutoGUI to simulate game key presses</li>
+      <li> Real-time visual feedback via OpenCV</li>
+      <li> Gesture cooldown & threshold to prevent accidental triggers</li>
+    </ul>
+
+    <h2 class="glitch-heading" data-text="How It Works">How It Works</h2>
+    <p>
+      MediaPipe identifies wrist positions from both hands. Movement direction and speed are tracked frame-to-frame.
+      Based on hand position and velocity, gestures are recognized and mapped to game key presses:
+    </p>
+
+    <ul>
+      <li><b>Left Punch</b>: Left hand quickly moves right → Key <code>←</code></li>
+      <li><b>Right Punch</b>: Right hand quickly moves left → Key <code>→</code></li>
+      <li><b>Uppercut</b>: One hand raised above the face → Key <code>X</code></li>
+      <li><b>Block</b>: Both hands close to the face → Key <code>Z</code></li>
+    </ul>
+
+    <h2 class="glitch-heading" data-text="Gesture Mapping">Gesture Mapping</h2>
+    <table class="gesture-table">
+      <thead>
+        <tr>
+          <th>Gesture</th>
+          <th>Key Press</th>
+          <th>Detection Logic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Left Punch</td>
+          <td class="key">←</td>
+          <td>Left hand moves rapidly to the right</td>
+        </tr>
+        <tr>
+          <td>Right Punch</td>
+          <td class="key">→</td>
+          <td>Right hand moves rapidly to the left</td>
+        </tr>
+        <tr>
+          <td>Uppercut</td>
+          <td class="key">X</td>
+          <td>One hand raised above the face</td>
+        </tr>
+        <tr>
+          <td>Block</td>
+          <td class="key">Z</td>
+          <td>Both hands close to the face area</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="glitch-heading" data-text="Installation">Installation</h2>
+    <pre>pip install opencv-python mediapipe pyautogui numpy</pre>
+    <p>Make sure Python 3.7+ is installed before running the project.</p>
+
+    <h2 class="glitch-heading" data-text="Results">Results</h2>
+    <p>
+      The system provides real-time gesture detection with visual feedback in the webcam feed. 
+      Detected gestures are mapped to boxing game actions instantly, making gameplay fully hands-free. 
+      Below is a demo video of the project in action:
+    </p>
+
+    <!-- Demo Video -->
+    <video class="result-video" controls autoplay loop muted>
+      <source src="Gesture_control.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 | Harish Kadhir SJ</p>
+</footer>
+
+</body>
+</html>

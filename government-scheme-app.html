@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Government Scheme App | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="government-scheme-app.css">
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero-box">
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1 class="hero-name" data-text="Government Scheme App">Government Scheme App</h1>
+      <h2 class="ai-subtitle">Manage & Display Government Schemes</h2>
+      <p>
+        A Flutter-based mobile app for administrators to manage and display various government schemes.
+        Provides a secure admin login, scheme management, and real-time updates via Firebase Firestore.
+      </p>
+    </div>
+    <div class="hero-right">
+      <img src="image-7.png" alt="Government Scheme App" class="hero-image">
+
+      <!-- Buttons -->
+      <div class="buttons" style="margin-top:15px; display:flex; gap:15px; justify-content:center;">
+        <a href="index.html" class="btn"><span>Back to Portfolio</span></a>
+        <a href="https://github.com/harishkadhir/government_scheme_app.git" target="_blank" class="btn github-btn"><span>GitHub</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="content-section">
+  <div class="content-inner">
+
+    <h2 class="glitch-heading" data-text="Features">Features</h2>
+    <ul>
+      <li>Admin Login: Secure login access for administrators</li>
+      <li>Add Scheme: Add new schemes with Name, Dates, Registration Link, and Description</li>
+      <li>Scheme List: Dynamic list updated in real-time</li>
+      <li>Scheme Details: Detailed view with registration link</li>
+      <li>Responsive Design for Android & iOS</li>
+    </ul>
+
+    <h2 class="glitch-heading" data-text="Technologies Used">Technologies Used</h2>
+    <ul>
+      <li>Flutter: Cross-platform mobile development</li>
+      <li>Firebase Firestore: Cloud database for real-time data</li>
+      <li>URL Launcher: Open URLs in default browser</li>
+      <li>Flutter Toast: Brief feedback & notifications</li>
+    </ul>
+
+    <h2 class="glitch-heading" data-text="Getting Started">Getting Started</h2>
+    <p><b>Prerequisites:</b></p>
+    <ul>
+      <li>Flutter installed on your machine</li>
+      <li>Firebase Project with Firestore configured</li>
+    </ul>
+
+    <p><b>Setup Instructions:</b></p>
+    <pre>
+git clone https://github.com/harishkadhir/government_scheme_app.git
+cd government_scheme_app
+flutter pub get
+    </pre>
+
+    <p>Configure Firebase:</p>
+    <ul>
+      <li>Go to Firebase Console, create a new project, and add an Android/iOS app</li>
+      <li>Download <code>google-services.json</code> for Android and place in <code>android/app</code></li>
+      <li>Run <code>flutterfire configure</code> to generate <code>firebase_options.dart</code></li>
+    </ul>
+
+    <p>Run the app:</p>
+    <pre>flutter run</pre>
+
+    <h2 class="glitch-heading" data-text="Folder Structure">Folder Structure</h2>
+    <pre>
+government_scheme_app/
+├── android/
+├── assets/
+│   └── icon/
+│       └── hkkk.jpg
+├── ios/
+├── lib/
+│   ├── add_scheme.dart
+│   ├── admin_login.dart
+│   ├── main.dart
+│   ├── scheme_detail.dart
+│   └── scheme_list.dart
+├── pubspec.yaml
+└── README.md
+    </pre>
+
+    <h2 class="glitch-heading" data-text="Usage">Usage</h2>
+    <ul>
+      <li>Launch the app on your device or emulator</li>
+      <li>Use Admin Login with code <code>batmanhk</code></li>
+      <li>Add new schemes using Add Scheme page</li>
+      <li>View schemes in Scheme List and tap for details</li>
+    </ul>
+
+    <h2 class="glitch-heading" data-text="Firebase Security Rules">Firebase Security Rules</h2>
+    <pre>
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /schemes/{schemeId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == 'adminUID';
+    }
+  }
+}
+    </pre>
+    <p>Replace <code>adminUID</code> with your admin user's UID if using Firebase Authentication.</p>
+
+    <h2 class="glitch-heading" data-text="Dependencies">Dependencies</h2>
+    <pre>
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: latest_version
+  cloud_firestore: latest_version
+  url_launcher: latest_version
+  fluttertoast: latest_version
+    </pre>
+    <p>Run <code>flutter pub get</code> to install these dependencies.</p>
+
+    <h2 class="glitch-heading" data-text="Screenshots">Screenshots</h2>
+    <div class="screenshot-grid">
+      <img src="3.jpeg" alt="Admin Login">
+      <img src="2.jpeg" alt="Add Scheme Page">
+      <img src="4.jpeg" alt="Menu">
+      <img src="1.jpeg" alt="Scheme Details">
+      <img src="5.jpeg" alt="Scheme List">
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 | Harish Kadhir SJ</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background-color: #0a0a0a;
+  color: #fff;
+  line-height: 1.6;
+}
+
+a { color: #fff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul { margin-left: 20px; }
+
+
+
+
+pre {
+  background: #111;
+  padding: 15px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.result-image {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Hero / Project Header Section */
+.hero-box {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 825px;
+  background-color: #111;
+  border-radius: 15px;
+  padding: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  border-radius: 15px;
+  background-color: #050505;
+  box-shadow: inset 0 0 30px rgba(255,255,255,0.1);
+  background-image: repeating-linear-gradient(
+      rgba(255,255,255,0.05) 0px,
+      rgba(255,255,255,0.05) 1px,
+      transparent 1px,
+      transparent 3px
+  );
+  animation: scanline 0.5s infinite linear;
+  z-index: 1;
+}
+
+.hero-content::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 15px;
+  pointer-events: none;
+  box-shadow:
+    2px 2px 0 #fff, -2px -2px 0 #aaa,
+    4px -2px 0 #fff, -4px 2px 0 #aaa;
+  animation: cyberglitch 2s infinite linear alternate;
+  z-index: 2;
+}
+
+@keyframes scanline { 
+  0% { background-position:0 0; } 
+  100% { background-position:0 3px; } 
+}
+@keyframes cyberglitch {
+  0%,100% { transform: translate(0,0); }
+  25% { transform: translate(3px,-3px); }
+  50% { transform: translate(-3px,3px); }
+  75% { transform: translate(2px,2px); }
+}
+
+.hero-left { flex:1; text-align:left; z-index:3; }
+.hero-right { flex:1; max-width:500px; z-index:3; text-align:center; }
+
+.hero-image { 
+  max-width: 380px; 
+  border-radius: 10px; 
+  width: 100%; 
+  height: auto; 
+}
+
+/* Hero Name / Subtitle */
+.hero-name {
+  font-family:'Orbitron', sans-serif;
+  font-size:32px;
+  font-weight:bold;
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+
+.hero-name::before,
+.hero-name::after {
+  content: attr(data-text);
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  overflow:hidden;
+}
+
+.hero-name::before { 
+  animation: glitch-text1 2s infinite linear alternate-reverse; 
+  color:#fff; clip: rect(0,9999px,15px,0); 
+}
+.hero-name::after { 
+  animation: glitch-text2 2.5s infinite linear alternate-reverse; 
+  color:#fff; clip: rect(5px,9999px,20px,0); 
+}
+
+.ai-subtitle { 
+  font-family:'VT323', monospace; 
+  font-size:24px; 
+  color:#fff; 
+  margin:10px 0; 
+}
+
+/* Buttons */
+.buttons { 
+  margin-top:20px; 
+  display:flex; 
+  justify-content:center;
+  gap: 50px;
+  
+}
+.btn { 
+  position:relative; 
+  background:#fff; 
+  color:#000; 
+  padding:10px 20px; 
+  border-radius:5px; 
+  font-family:'Share Tech Mono'; 
+  font-weight:bold; 
+  text-transform:uppercase; 
+  cursor:pointer; 
+  overflow:hidden;
+  
+}
+.btn span { position:relative; z-index:2; }
+.btn::after { 
+  content:''; 
+  position:absolute; 
+  top:0; left:0; 
+  width:100%; height:100%; 
+  box-shadow: 2px 0 #fff, -2px 0 #aaa; 
+  opacity:0.6; 
+  animation: btn-glitch 1s infinite linear alternate-reverse; 
+}
+@keyframes btn-glitch {
+  0%{transform:translate(0,0);} 
+  20%{transform:translate(-2px,2px);} 
+  40%{transform:translate(2px,-1px);} 
+  60%{transform:translate(-1px,1px);} 
+  80%{transform:translate(1px,-2px);} 
+  100%{transform:translate(0,0);} 
+}
+.btn:hover { background:#ddd; }
+
+/* Glitch Effect for Content Headings */
+.glitch-heading {
+  font-family:'Orbitron', sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  color:#fff;
+  text-transform:uppercase;
+  position:relative;
+  overflow:hidden;
+  margin:30px 0 15px;
+  padding-bottom:10px;
+  border-bottom: 2px solid #fff;
+}
+
+.glitch-heading::before,
+.glitch-heading::after {
+  content: attr(data-text);
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  overflow:hidden;
+}
+
+.glitch-heading::before { 
+  animation: glitch-text1 2s infinite linear alternate-reverse; 
+  color:#fff; clip: rect(0,9999px,8px,0); 
+}
+.glitch-heading::after { 
+  animation: glitch-text2 2.5s infinite linear alternate-reverse; 
+  color:#fff; clip: rect(8px,9999px,16px,0); 
+}
+
+/* Glitch Animations */
+@keyframes glitch-text1 {
+  0%{transform:translate(0);}
+  20%{transform:translate(-3px,2px);}
+  40%{transform:translate(-2px,-2px);}
+  60%{transform:translate(3px,3px);}
+  80%{transform:translate(2px,-2px);}
+  100%{transform:translate(0);}
+}
+@keyframes glitch-text2 {
+  0%{transform:translate(0);}
+  20%{transform:translate(3px,-3px);}
+  40%{transform:translate(2px,2px);}
+  60%{transform:translate(-3px,-3px);}
+  80%{transform:translate(-2px,2px);}
+  100%{transform:translate(0);}
+}
+
+/* Content Section */
+.content-section { 
+  padding:5px 30px; 
+  max-width:900px; 
+  margin:auto; 
+}
+.content-section p { font-size:16px; line-height:1.6; margin-bottom:15px; }
+.content-section ul { margin-left:20px; margin-bottom:15px; }
+.content-section pre { margin-bottom:20px; }
+
+/* Footer */
+footer { 
+  text-align:center; 
+  padding:20px; 
+  border-top:1px solid #fff; 
+  color:#aaa; 
+  font-family:'Share Tech Mono'; 
+  margin-top:40px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero-content { flex-direction:column; gap:20px; text-align:center; }
+  .hero-left { text-align:center; }
+  .hero-right { max-width:100%; }
+  .hero-image { max-width:250px; margin-bottom:20px; }
+  .buttons { margin-top:10px; }
+  .glitch-heading { font-size:22px; }
+}
+
+/* Extra Small Screens (Phones under 480px) */
+@media(max-width:480px){
+  .hero-box { padding:30px 10px; }
+  .hero-content { padding:20px; gap:15px; }
+  .hero-name { font-size:24px; }
+  .ai-subtitle { font-size:18px; }
+  .hero-image { max-width:200px; }
+  .btn { padding:8px 15px; font-size:14px; }
+  .content-section { padding:20px 15px; }
+  .content-section p { font-size:14px; }
+  footer { font-size:12px; }
+}
