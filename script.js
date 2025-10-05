@@ -9,25 +9,28 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // ====== Resume Button ======
-  const resumeBtn = document.getElementById("resumeBtn");
-  if (resumeBtn) {
-    resumeBtn.addEventListener("click", function() {
-      // Use relative path for GitHub Pages
-      const resumePath = "hknew (1).pdf"; // Make sure this PDF is in the same folder as index.html
+  // ====== Resume Buttons (Navbar & Hero) ======
+  const resumeButtons = [document.getElementById("resumeBtnHero"), document.getElementById("resumeBtnNav")];
+  
+  resumeButtons.forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", function() {
+        // Relative path for GitHub Pages
+        const resumePath = "hknew (1).pdf"; // Place PDF in the same folder as index.html
+        
+        // Open in new tab
+        window.open(resumePath, "_blank");
 
-      // Open in new tab
-      window.open(resumePath, "_blank");
-
-      // Trigger download
-      const link = document.createElement("a");
-      link.href = resumePath;
-      link.download = "Harish_Kadhir_SJ_Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  }
+        // Trigger download
+        const link = document.createElement("a");
+        link.href = resumePath;
+        link.download = "Harish_Kadhir_SJ_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  });
 
   // ====== Contact Form (Formspree Integration) ======
   const form = document.getElementById('contactForm');
